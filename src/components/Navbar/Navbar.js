@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, Navigate, useNavigate} from 'react-router-dom';
 import { Container, Navbar as BootstrapNavbar, Nav } from 'react-bootstrap';
 import './Navbar.css';
 import { Authenticator, useAuthenticator } from '@aws-amplify/ui-react';
+import { signOut } from "aws-amplify/auth"
 
 function Navbar() {
     const { user } = useAuthenticator((context) => [context.user]);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
-        console.log("coming")
         setIsAuthenticated(!!user);
     }, [user]);
 
@@ -31,12 +31,20 @@ function Navbar() {
 }
 
 const AuthStateComponent = ({ isAuthenticated }) => {
-    const { signOut } = useAuthenticator((context) => [context.signOut]);
+    const navigate = useNavigate();
 
+    async function signingOut() {
+        try {
+            await signOut();
+            navigate('/login');
+        } catch (error) {
+            console.error('Error signing out: ', error);
+        }
+    }
     return (
         <Nav>
             {isAuthenticated ? (
-                <button className="logout-button" onClick={signOut}>
+                <button className="logout-button" onClick={signingOut}>
                     Logout
                 </button>
             ) : (

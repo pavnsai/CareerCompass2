@@ -18,8 +18,8 @@ function InnerRoutes() {
         <>
                 {location.pathname !== "/"&& <Navbar />}
                 <Routes>
-                    <Route path='/jobs' element={<TableContainer />} />
-                    <Route path='/jobs2' element={<PrivateRoute><TableContainer /></PrivateRoute>} />
+                    {/*<Route path='/jobs' element={<TableContainer />} />*/}
+                    <Route path='/jobs' element={<PrivateRoute><TableContainer /></PrivateRoute>} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/" element={<LandingPage />} />
                 </Routes>

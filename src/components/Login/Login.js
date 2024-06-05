@@ -4,6 +4,7 @@ import '@aws-amplify/ui-react/styles.css';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import Loader from "../Utils/Loader";
+import { Hub } from 'aws-amplify/utils';
 
 function Login() {
     const { user } = useAuthenticator((context) => [context.user]);
@@ -12,13 +13,23 @@ function Login() {
 
     useEffect(() => {
         if (user) {
+            console.log("coming to login")
             setIsLoading(true);
             setTimeout(() => {
-                navigate('/jobs2');
+                navigate('/jobs');
             }, 1000);
         }
     }, [user, navigate]);
 
+
+
+    Hub.listen('auth', ({ payload }) => {
+        switch (payload.event) {
+            case 'signedIn':
+                navigate('/jobs');
+                break;
+        }
+    });
     return (
         <div className="authenticator-container">
             {isLoading && <Loader />}
