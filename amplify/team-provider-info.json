@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifycareercompass-dev-fdf82-authRole",
+      "UnauthRoleArn": "arn:aws:iam::211125552450:role/amplify-amplifycareercompass-dev-fdf82-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::211125552450:role/amplify-amplifycareercompass-dev-fdf82-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplifycareercompass-dev-fdf82-deployment",
+      "UnauthRoleName": "amplify-amplifycareercompass-dev-fdf82-unauthRole",
+      "StackName": "amplify-amplifycareercompass-dev-fdf82",
+      "StackId": "arn:aws:cloudformation:us-east-1:211125552450:stack/amplify-amplifycareercompass-dev-fdf82/09917e60-229b-11ef-9907-0affe01702c9",
+      "AmplifyAppId": "d1mh53vwyg09ii"
+    },
+    "categories": {
+      "auth": {
+        "amplifycareercompass67bdb6c9": {}
+      }
+    }
+  }
+}

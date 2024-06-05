@@ -1,0 +1,24 @@
+
+.authenticator-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items from the top */
+    min-height: 100vh;
+    background-image: url('../../../public/cool-background (2).png');
+    background-size: 200% 200%;
+    animation: gradient 100s ease infinite;
+}
+
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
